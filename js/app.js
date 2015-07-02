@@ -84,7 +84,10 @@ var Views = {
 };
 
 ///////// ************** FUNCTIONS
-
+$(function(){
+    $('#loading').ajaxStart(function(){ $(this).fadeIn(); });
+    $('#loading').ajaxStop(function(){ $(this).fadeOut(); });
+});
 var vs = new Views.VideosApp();
 vs.setElement($('#container')).render();
 
