@@ -12,8 +12,6 @@ First backbone and handlebars project integrated with youtube api
 - Button for scroll to top
 
 # Goals
-- item
-- item
 - First handlebars project
 - First backbone project
 - Use nested templates and views
@@ -21,6 +19,7 @@ First backbone and handlebars project integrated with youtube api
 - Get Description, Title, Position, and video URL from youtube API object
 - Different template for first video of first page only
 - Handlebars custom helpers
+- Truly responsive and first mobile
   
 # Live Demo
   http://yonred.com/trailers/
