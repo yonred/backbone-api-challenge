@@ -73,7 +73,6 @@ var Views = {
 			this.collection.fetch({
                 data:{q:evdata.queryString},
                 success: function(posts, data){
-                    console.log(data.nextPageToken)
                     if(data.nextPageToken != null){
                         window.path='https://www.googleapis.com/youtube/v3/playlistItems?pageToken='+data.nextPageToken+'&part=snippet&maxResults=30&playlistId=PLTNl117aSmvEHA4RaCmhOu76SaZRakClG &key=AIzaSyCkOkN3M_gNDpeQJSObnp5KfxRfkU8HlG8';
                     }
@@ -84,6 +83,8 @@ var Views = {
 };
 
 ///////// ************** FUNCTIONS
+$("#playercont").hide();
+
 $(function(){
     $('#loading').ajaxStart(function(){ $(this).fadeIn(); });
     $('#loading').ajaxStop(function(){ $(this).fadeOut(); });
@@ -116,6 +117,24 @@ $(".button-more").click(function() {
     },"slow");
     $('#ytplayer').stopVideo()
 });
+
+function openVideo (videoid, videotitle){
+    $(".playerbody").html('');
+    $(".span-playerheader").html('');
+    $(".span-playerheader").html(videotitle);
+    $(".playerbody").html('<iframe width="560" height="315" src="http://www.youtube.com/embed/'+videoid+'?rel=0&amp;autoplay=1&showinfo=0" frameborder="0" version=3 controls=1 showinfo=0></iframe>');
+    var newWidth = $('body').css('width');
+    var $el = $(this);
+    $(".playerbody").css('width',newWidth);
+    $(".playerbody").css('height',newWidth * $el.attr('data-aspectRatio'));
+    $("#playercont").show();
+}
+
+function closeVideo (){
+    $("#playercont").hide();
+    $(".playerbody").html('');
+    $(".span-playerheader").html('');
+}
 
 ///////// ************** HANDLEBARS
 
